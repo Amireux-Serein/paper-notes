@@ -1,4 +1,4 @@
-![1](.\..\pictures\AIGC\InstantID Zero-shot Identity-Preserving Generation in Seconds\The awesome team of InstantID in author order, generated with InstantID.png)
+![1](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/The awesome team of InstantID in author order, generated with InstantID.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 1. The awesome team of InstantID in author order, generated with InstantID.</center>
 
