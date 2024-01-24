@@ -40,7 +40,7 @@ previous methods constraint:
 
 # Methodology
 
-![2](.\..\pictures\AIGC\InstantID Zero-shot Identity-Preserving Generation in Seconds\The overall pipeline of our proposed InstantID.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/The_overall_pipeline_of_our_proposed_InstantID.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 2. The overall pipeline of our proposed InstantID.</center>
 
@@ -94,35 +94,35 @@ Only optimize the parameters of the Image Adapter and the IdentityNet while keep
 
 Qualitative Results
 
-![3](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Demonstration of the robustness, editability, and compatibility of InstantID.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Demonstration_of_the_robustness,_editability_and_compatibility_of_InstantID.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 3. Demonstration of the robustness, editability, and compatibility of InstantID.</center>
 
 Fig. 3 description: Column 1 shows the result of Image Only results where the prompt is set to empty during inference. Columns 2-4 show the editability through text prompt. Columns 5-9 show the compatibility with existing ControlNets (canny & depth).
 
-![4](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Effect of the number of reference images.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Effect_of_the_number_of_reference_images.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 4. Effect of the number of reference images.</center>
 
 Fig. 4 description: For multiple reference images, we take the average mean of ID embeddings as image prompt. InstantID is able to achieve good results even with only one single reference image. (A result of Ablative Study meanwhile)
 
-![](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Effect of Image Adapter and IdentityNet.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Effect_of_Image_Adapter_and_IdentityNet.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 5. Effect of Image Adapter and IdentityNet.</center>
 
 Fig. 5 description: The x-axis and y-axis correspond to the weight strength of Image Adapter and IdentityNet respectively. (Ablative Study Result)
 
-![](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Comparison of InstantID with other methods conditioned on different characters and styles.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Comparison_of_InstantID_with_other_methods_conditioned_on_different_characters_and_styles.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 6. Comparison of InstantID with other methods conditioned on different characters and styles.</center>
 
 Fig. 6 description: From left to right are IP-Adapter-SDXL, IPAdapter-SDXL-FaceID (* indicates experimental version), IP-Adapter-SD1.5-FaceID, IP-Adapter-SD1.5-FaceID-Plus. As shown in the figure, we found that the IP-Adapter that relies on CLIP embedding cannot achieve facial fidelity, and also leads to the degradation of prompt control to generate styles. IP-Adapter-FaceID introduces face embedding, which improves face fidelity, but it still cannot achieve high fidelity. IPAdapter-FaceID-Plus combines the embedding of face and CLIP, which can achieve good facial fidelity, but there is a style degradation problem, resulting in the face being unable to blend into the background style. In contrast, our proposed InstantID is compatible with various styles while maintaining high fidelity.
 
-![](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Comparison of InstantID with pre-trained character LoRAs.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Comparison_of_InstantID_with_pre-trained_character_LoRAs.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 7. Comparison of InstantID with pre-trained character LoRAs.</center>
 
-![](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/Comparison of InstantID with InsightFace Swapper.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/Comparison_of_InstantID_with_InsightFace_Swapper.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 8. Comparison of InstantID with InsightFace Swapper.</center>
 
