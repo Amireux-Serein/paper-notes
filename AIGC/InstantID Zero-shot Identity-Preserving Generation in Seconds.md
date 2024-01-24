@@ -1,4 +1,4 @@
-![1](./../pictures/AIGC/InstantID Zero-shot Identity-Preserving Generation in Seconds/The awesome team of InstantID in author order, generated with InstantID.png)
+![](./../pictures/AIGC/InstantID%20_Zero-shot_Identity-Preserving_Generation_in_Seconds/The_awesome_team_of_InstantID_in_author_order,_generated_with_InstantID.png)
 
 <center style="color:#C0C0C0;font-size:medium;text-decoration:underline">Fig. 1. The awesome team of InstantID in author order, generated with InstantID.</center>
 
