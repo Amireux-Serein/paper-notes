@@ -6,7 +6,7 @@
 
 **paper**: InstantID: Zero-shot Identity-Preserving Generation in Seconds
 
-**report**: https://arxiv.org/abs/2401.07519
+**report/doi**: https://arxiv.org/abs/2401.07519
 
 **code**: https://github.com/InstantID/InstantID
 
