@@ -13,11 +13,6 @@ $$
 $$
 
 
-
-
-
-
-
 $$
 {x_t} = \sqrt {{\alpha _t}} {x_{t - 1}} + \sqrt {1 - {\alpha _t}} {z_1} \tag{2}
 $$
