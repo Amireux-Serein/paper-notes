@@ -25,6 +25,7 @@ $$
 现在给定$x_0$，如何得到$x_t$？
 
 将(3)代入到(2)，得：
+
 $$
 \begin{align}
 x_t &= \sqrt {\alpha_t} (\sqrt {\alpha _{t - 1}} x_{t - 2} + \sqrt {1 - \alpha _{t-1}} z_2) + \sqrt {1 - \alpha_t} z_1 \\
@@ -32,6 +33,7 @@ x_t &= \sqrt {\alpha_t} (\sqrt {\alpha _{t - 1}} x_{t - 2} + \sqrt {1 - \alpha _
     &= \sqrt {\alpha_t \alpha _{t - 1}} x_{t - 2} + \sqrt {1 - \alpha_t \alpha _{t - 1}} {z_2} 
 \end{align}
 $$
+
 其中$z_1$，$z_2$均服从高斯分布（标准正态分布）
 
 $z_1, z_2,... \sim N(0, ~ I)$
@@ -41,10 +43,10 @@ $\sqrt {1 - \alpha _t} z_1 \sim N(0, ~ 1 - \alpha_t)$​
 $\sqrt {\alpha_t (1 - \alpha _{t - 1})} z_2 ~ \sim N(0, ~ \alpha_t (1 - \alpha _{t - 1}))$
 
 不停迭代，最终得到：
+
 $$
 x_t = \sqrt {{\overline {\alpha}}_t} x_0 + \sqrt {1 - {\overline {\alpha}}_t}{z_t} \tag{6}
 $$
-
 
 任意时刻的数据，都可以通过初始的$x_0$得到。
 
@@ -61,6 +63,7 @@ $P(x_{t - 1} | x_t)$怎么求？
 在前向过程中求得：$P(x_t | x_{t - 1})$，$P(x_t | x_0)$
 
 贝叶斯公式：
+
 $$
 P(x_{t - 1} | x_t) = P(x_t | x_{t - 1}) \frac {P(x_{t - 1})} {P(x_t)} \tag{7}
 $$
