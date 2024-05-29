@@ -1,10 +1,14 @@
 # 球谐函数
 
-有点类似傅里叶级数的思想，先看傅里叶级数：
+有点类似傅里叶级数的思想，先看傅里叶级数： 
+
+
 $$
 f(x) = a_0 + \sum _{n=1} ^{\infty} a_n cos{\frac {n \pi} {l} x} + b_n sin{\frac {n \pi} {l} x}
 $$
-其中： $cos{\frac {n \pi} {l} x}$ 和 $sin{\frac {n \pi} {l} x}$ 叫做基函数，当 $n \rightarrow + \infty$ 时，就几乎完美拟合任意曲线了。当 $n$ 有限时，也可以近似。
+
+
+ 其中： $cos{\frac {n \pi} {l} x}$ 和 $sin{\frac {n \pi} {l} x}$ 叫做基函数，当 $n \rightarrow + \infty$ 时，就几乎完美拟合任意曲线了。当 $n$ 有限时，也可以近似。
 
 球谐函数也是类似的，用基函数来拟合。
 $$
