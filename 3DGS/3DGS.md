@@ -185,7 +185,7 @@ $$
 
 
 $$
-- \ln (2 \pi) ^{\frac {3} {2}} |\Sigma| ^{\frac {1} {2}} - \frac {(\mathbf {x} - \boldsymbol {\mu}) ^\top (\Sigma) ^{-1} (\mathbf {x} - \boldsymbol {\mu})} {2} = \ln p \tag{16}
+ -\ln (2 \pi) ^{\frac {3} {2}} |\Sigma| ^{\frac {1} {2}} - \frac {(\mathbf {x} - \boldsymbol {\mu}) ^\top (\Sigma) ^{-1} (\mathbf {x} - \boldsymbol {\mu})} {2} = \ln p \tag{16}
 $$
 
 $$
