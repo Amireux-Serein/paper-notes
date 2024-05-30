@@ -25,7 +25,7 @@ $$
 
 ![](https://github.com/RuiqingTang/picx-images-hosting/raw/master/image/sh_fun.9dcspjecbv.webp)
 
-球谐函数在3DGS里用来表示点云的颜色 $(r,g,b)$​ ，这样可以在不同的角度呈现不同的颜色。
+球谐函数在3DGS里用来表示点云的颜色 $(r,g,b)$​ ，这样可以在不同的角度呈现不同的颜色。在3DGS中，作者使用了4阶的球谐函数，球谐函数的参数量为阶数的平方，因此对于点云的颜色，需要用到3×4×4个参数来进行表示。
 
 # 3D Gaussian
 
@@ -280,9 +280,9 @@ $$
 
 保留99%置信区间的Gaussian：将Gaussian投影到平面上，得到了一个新的Gaussian，针对某个像素来说，如果它有99%的可能性落在这个Gaussian里，那么就保留这个Gaussian。
 
-3DGS采用的是tile_based的方案，将图像划分成16*16的tiles（原始论文的说法）
+3DGS采用的是tile_based的方案，将图像划分成16×16的tiles（原始论文的说法）
 
-将图像划分成若干个互不重叠的tiles，每个tiles里是16*16个像素（综述的说法）
+将图像划分成若干个互不重叠的tiles，每个tiles里是16×16个像素（综述的说法）
 
 这两个有着本质区别，需要查看源码才知道具体实现是什么样的。剩下的步骤都是一样的。
 
@@ -306,15 +306,49 @@ $$
 
 对于过度重建的区域，将其分裂成两个，并把scale系数除以超参数1.6，位置由PDF采样来初始化。
 
+# 整体流程
 
+![](https://github.com/RuiqingTang/picx-images-hosting/raw/master/image/image.7ljtx0q6cf.webp)
 
+从初始的SfM点云开始，以每个点为中心生成3D Gaussian，然后用相机参数将其投影到平面上（Splatting），然后进行tile-based的光栅化得到渲染后的图像，将渲染后的图像和GT图像求loss，然后进行反向传播，自适应密度控制这个模块将会根据传递的梯度，来决定是否需要对3D Gaussian做克隆或者分裂。梯度同样会传递到3D Gaussian，来更新位置，协方差矩阵，球谐函数，不透明度这几个参数。这里对协方差矩阵的更新其实是优化四元数和3D向量，而不是直接优化协方差矩阵，见式(24)。
 
+# 伪代码
 
+![](https://github.com/RuiqingTang/picx-images-hosting/raw/master/image/image.8ad3h4s57r.webp)
 
+$M$ 是SfM初始化的点云，
 
+$S,C,A$ 分别表示协方差（控制形状），颜色，不透明度，
 
+$i$ 是迭代的次数，初始化为0，
 
+如果还没有收敛，就执行以下操作：
 
+​	首先从数据集里采样相机的位姿 $V$ 和图片 $\hat {I}$ （这个 $\hat {I}$ 是ground true）
 
+​	传入参数 $M,S,C,A,V$ ，通过光栅话的操作渲染出一张图像 $I$ ，
 
+​	对渲染出的图像和GT求 $LOSS$ （ $L$ ），
 
+​	然后对 $L$ 求梯度，进行梯度回传，使用Adam优化器对 $M,S,C,A$ 这些参数进行优化，
+
+​	之后判断是否要refine，这里其实就是设置一个超参数，每训练多少步进行一次。
+
+​		遍历所有的Gaussians
+
+​			如果不透明度小于某个阈值，就将这个Gaussian去除。
+
+​			如果计算的梯度，大于某个阈值（论文里设置0.0002），就进行Densification。
+
+​				如果梯度大是因为协方差大，那就将这个Gaussian分裂成两个。
+
+​				如果梯度大是因为协方差小，那就将这个Gaussian进行克隆。
+
+![](https://github.com/RuiqingTang/picx-images-hosting/raw/master/image/image.8ojj81degw.webp)
+
+一些个人还不太理解的点（排序不分先后，想到哪个写哪个的）：
+
+1. tile-based的方法中，到底是将图像分为16×16个tiles，还是将图像分为若干个tiles，而每个tiles是16×16个像素？
+2. 光栅化的伪代码看不懂，很多细节不知道如何实现的，比如GPU Radix sort。
+3. 球谐函数的底层原理。
+4. 具体的投影变换那些，只知道是这么实现的，但是对于更加底层的知识并不了解。
