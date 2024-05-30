@@ -44,7 +44,7 @@ AST
 
 
 $$
-\boldsymbol {\Delta} = \boldsymbol {\mathcal {F}} _{\boldsymbol {\theta}} (\boldsymbol {\gamma} (sg(\bold {x})), \boldsymbol {\gamma} (t) + \bold {\mathcal {X}} (i))
+\boldsymbol {\Delta} = \boldsymbol {\mathcal {F}} _{\boldsymbol {\theta}} (\boldsymbol {\gamma} (sg(\boldsymbol {x})), \boldsymbol {\gamma} (t) + \boldsymbol {\mathcal {X}} (i))
 $$
 
 
