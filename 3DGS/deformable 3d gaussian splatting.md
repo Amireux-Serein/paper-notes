@@ -15,18 +15,26 @@
 变形场是通过MLP来实现的，它的作用是将Gaussian映射到canonical space。MLP的输入是经过位置编码的Gaussian的位置和时间，输出是位置，旋转，缩放的偏移量。
 
 位置编码的实现：
+
+
 $$
 \gamma(p) = \left(\sin(2^k \pi p),\cos(2^k \pi p) \right) _{k=0} ^{L-1}
 $$
+
+
 合成的场景数据：对于位置 $\boldsymbol{x}$ ， $L=10$ ；对于时间 $t$ ， $L=6$ 
 
 真实的场景数据：对于位置 $\boldsymbol{x}$ ， $L=10$ ；对于时间 $t$ ， $L=10$ 
 
 这个过程可以表示为： 
+
+
 $$
 ( \delta _{\boldsymbol {x}}, \delta _{\boldsymbol {r}}, \delta _{\boldsymbol {s}})  = \mathcal {F} _{\theta}(\gamma(sg(\boldsymbol {x})), \gamma(t))
 $$
-其中， $ \mathcal {F} _{\theta}$ 表示MLP。 $sg(·)$ 表示停止梯度操作。
+
+
+其中， $\mathcal {F} _{\theta}$ 表示MLP。 $sg(·)$ 表示停止梯度操作。
 
 简单来说就是变形场的功能就是：根据时间输入给每个Gaussian提供相应的相对应的变形参数，使得其在canonical space里保持一致或稳定。通过学习时间和位置的关系，变形场就能够捕捉到场景中的动态变化。
 
