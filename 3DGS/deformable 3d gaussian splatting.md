@@ -40,5 +40,14 @@ $$
 
 AST
 
+没太看懂......
+$$
+\bold {\Delta} = \bold {\mathcal {F}} _{\boldsymbol {\theta}} (\boldsymbol {\gamma} (sg(\bold {x})), \boldsymbol {\gamma} (t) + \bold {\mathcal {X}} (i))
+$$
+
+$$
+\bold {\mathcal {X}} (i) = \mathbb {N} (0, 1) · \beta · \Delta t · (1 - i/ \tau)
+$$
+
 
 
