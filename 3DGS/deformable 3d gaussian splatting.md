@@ -8,7 +8,7 @@
 
 大部分的内容都很相似，只不过Deformable 3DGS引入了一个MLP，除此之外，它还增加了一个退火平滑训练机制AST（annealing smoothing training mechanism）。
 
-简要讲解：同原版的3DGS一样，从初始化的SfM点云开始，以每个点为中心生成3D Gaussian。将3D Gaussian的位置 $\boldsymbol {x}$ 和时间 $t$ 进行位置编码，然后输入到MLP网络，得到Gaussians在canonical space的偏移量 $( \delta _{\boldsymbol {x}}, \delta _{\boldsymbol {r}}, \delta _{\boldsymbol {s}}) $ ，然后加上原本的Gaussians，得到变形Gaussians。之后的步骤和原版3DGS一样，只是多了一个AST和梯度也要回传到MLP来更新参数。
+简要讲解：同原版的3DGS一样，从初始化的SfM点云开始，以每个点为中心生成3D Gaussian。将3D Gaussian的位置 $\boldsymbol {x}$ 和时间 $t$ 进行位置编码，然后输入到MLP网络，得到Gaussians在canonical space的偏移量 $(\delta _{\boldsymbol {x}} , \delta _{\boldsymbol {r}} , \delta _{\boldsymbol {s}})$ ，然后加上原本的Gaussians，得到变形Gaussians。之后的步骤和原版3DGS一样，只是多了一个AST和梯度也要回传到MLP来更新参数。
 
 以下是个人的一些理解：
 
